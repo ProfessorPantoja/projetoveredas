@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia-me pelas Veredas da Execução | Rogério Amaral</title>
+    <meta name="description" content="O método definitivo para destravar execuções trabalhistas, vindo direto de quem decide.">
+    
+    <!-- Fontes Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIÁVEIS E BASE --- */
+        :root {
+            --navy-dark: #05101c;
+            --navy-medium: #0d2339;
+            --gold: #c5a059;
+            --gold-light: #e6c888;
+            --white: #f5f5f5;
+            --gray: #a0a0a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--navy-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+        }
+
+        .text-gold { color: var(--gold); }
+        .bg-navy { background-color: var(--navy-medium); }
+        
+        /* --- BOTÕES E CTA --- */
+        .btn-cta {
+            background: linear-gradient(135deg, var(--gold) 0%, #a67c33 100%);
+            color: var(--navy-dark);
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.5);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+        }
+
+        /* --- ANIMAÇÕES (Scroll Reveal) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- CONTAINER GERAL --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, var(--navy-medium) 0%, var(--navy-dark) 100%);
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMTk3LCAxNjAsIDg5LCAwLjEpIi8+PC9zdmc+');
+            opacity: 0.3;
+        }
+
+        .hero-tag {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Moldura do Vídeo com efeito Dourado */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            padding: 5px; /* Borda dourada falsa */
+            background: linear-gradient(45deg, var(--navy-dark), var(--gold), var(--navy-dark));
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- AUTORIDADE E RESULTADOS --- */
+        .stats-section {
+            background-color: var(--navy-dark);
+            padding: 80px 0;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            color: var(--white);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- O MÉTODO (CONTEÚDO) --- */
+        .content-section {
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .content-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .content-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: -20px 20px 0px rgba(197, 160, 89, 0.1);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .feature-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: start;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* --- PREÇO / OFERTA --- */
+        .offer-section {
+            background: linear-gradient(180deg, var(--navy-medium) 0%, var(--navy-dark) 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .price-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--gold);
+            border-radius: 15px;
+            padding: 60px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .price-card::before {
+            content: 'OFERTA DE LANÇAMENTO';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--gold);
+            color: var(--navy-dark);
+            padding: 5px 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border-radius: 50px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+
+        .new-price {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            margin: 10px 0;
+        }
+        .new-price span { font-size: 1.5rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .content-section { flex-direction: column-reverse; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container reveal active">
+            <span class="hero-tag">Exclusivo para Advogados Trabalhistas</span>
+            <h1>A Execução Trabalhista <br><span class="text-gold">Não é Sorte. É Método.</span></h1>
+            <p>Pare de depender da boa vontade do juízo. Descubra o mapa tático, validado por quem está do outro lado do balcão, para encontrar bens e satisfazer o crédito.</p>
+            
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <!-- Substitua pelo Embed do seu Vídeo (YouTube/Vimeo) -->
+                    <!-- Exemplo placeholder -->
+                    <iframe src="https://www.youtube.com/embed/fOBTND6D1iU" title="Video Rogério Amaral" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a href="#oferta" class="btn-cta">QUERO O MAPA DA EXECUÇÃO</a>
+                <p style="font-size: 0.9rem; margin-top: 10px; color: var(--gray);">Acesso imediato ao material digital.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTORIDADE / RESULTADOS -->
+    <section class="stats-section reveal">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-size: 2rem;">Validado no Campo de Batalha</h2>
+                <p class="text-gold">Não é teoria acadêmica. É a realidade da Vara mais eficiente do Brasil.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>2 Anos</h3>
+                    <p>De aplicação e refinamento diário da metodologia</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Top 1%</h3>
+                    <p>Eficiência em Execução no cenário nacional</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Insider</h3>
+                    <p>Criado por um Servidor Público com visão estratégica</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O CONTEÚDO (IMAGEM TABLET) -->
+    <section class="content-section container reveal">
+        <div class="content-image">
+            <!-- AQUI ENTRA A IMAGEM DA MOÇA COM O TABLET QUE VOCÊ GEROU -->
+            <!-- Renomeie sua imagem para 'capa-tablet.jpg' e coloque na mesma pasta ou use URL -->
+            <img src="https://i.ibb.co/My1C7SzK/Gemini-Generated-Image-wuffrcwuffrcwuff.png" alt="Guia pelas Veredas da Execução no Tablet">
+        </div>
+        <div class="content-text">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">O que é o <span class="text-gold">"Guia-me pelas Veredas"</span>?</h2>
+            <p>Rogério Amaral não escreveu um livro doutrinário. Ele desenhou um <strong>Protocolo Operacional</strong>. Este material é a sistematização do fluxo de trabalho que permitiu sanear centenas de processos estagnados.</p>
+            
+            <ul class="feature-list">
+                <li><strong>A Ordem Cronológica Certa:</strong> Saiba exatamente qual ferramenta usar (Sisbajud, Sniper, Censec) e em que momento.</li>
+                <li><strong>Modelos Mentais de Despacho:</strong> Aprenda a pedir do jeito que o servidor precisa para deferir rápido.</li>
+                <li><strong>O "Despachão":</strong> A técnica de ultimato para execuções antigas que parecem sem solução.</li>
+                <li><strong>Inteligência Investigativa:</strong> Como encontrar o patrimônio que o devedor jura que não tem.</li>
+            </ul>
+
+            <a href="#oferta" class="btn-cta" style="margin-top: 20px;">QUERO ACESSAR O PROTOCOLO</a>
+        </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section id="oferta" class="offer-section reveal">
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">O Preço da Ignorância é Alto</h2>
+            <p style="max-width: 600px; margin: 0 auto 50px; color: var(--gray);">Quanto custa ao seu escritório um processo parado há 5 anos? Rogério vai te entregar a chave para destravar isso por uma fração do valor de uma mentoria.</p>
+            
+            <div class="price-card">
+                <h3>Guia Definitivo da Execução Trabalhista</h3>
+                <p style="margin: 10px 0 30px;">E-book Completo + Estratégias de Ferramentas Digitais</p>
+                
+                <div class="old-price">De R$ 497,00</div>
+                <div class="new-price"><span>12x de</span> R$ 9,74</div>
+                <p style="margin-bottom: 30px;">ou R$ 97,00 à vista</p>
+
+                <ul style="text-align: left; margin-bottom: 30px; font-size: 0.9rem; color: #ccc;">
+                    <li>✅ Acesso Vitalício ao E-book</li>
+                    <li>✅ Atualizado com as novas ferramentas (Sniper/Teimosinha)</li>
+                    <li>✅ Garantia de 7 dias incondicional</li>
+                </ul>
+
+                <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn-cta" style="width: 100%;">COMPRAR AGORA</a>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.7;">*Oferta válida para a primeira turma de lançamento.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rogério Amaral - Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE ANIMAÇÃO -->
+    <script>
+        window.addEventListener('scroll', reveal);
+        function reveal(){
+            var reveals = document.querySelectorAll('.reveal');
+            for(var i = 0; i < reveals.length; i++){
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        // Ativar animação no load
+        reveal();
+    </script>
+</body>
+</html>
